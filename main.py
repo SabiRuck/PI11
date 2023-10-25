@@ -1,5 +1,8 @@
-print("hello world")
+a = int(input("Zadaj cislo a :"))
+b = int(input("Zadaj cislo b :"))
 
+print("hello world")
+print("Sucet je", a+b)
 
 
 
