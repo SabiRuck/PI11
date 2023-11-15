@@ -1,7 +1,7 @@
 import tkinter as tk  #'as tk' = od teraz staci pisat tk a nie cele slovo tkinter
 
-root = tk.Tk()  #vytvory tk okno
-canvas = tk.Canvas(root, width = 600, height=400)  #velkost okna
+#root = tk.Tk()  #vytvory tk okno
+canvas = tk.Canvas(width = 600, height=400)  #velkost okna
 canvas.pack()
 
 
@@ -51,7 +51,6 @@ canvas.create_line(400,300,425,200, fill="#72bf6a", width=12)
 canvas.create_line(435,300,460,200, fill="#8bca84", width=13)
 canvas.create_line(460,200,485,300, fill="#8bca84", width=13)
 canvas.create_line(445,260,475,260, fill="#8bca84", width=13)
-canvas.create_line(460,195,472,180, fill="#8bca84", width=13)
+canvas.create_line(460,195,472,180, fill="#8bca84", width=13)\
 
-
-root.mainloop()
+canvas.mainloop()
