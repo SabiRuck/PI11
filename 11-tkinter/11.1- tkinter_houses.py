@@ -5,17 +5,14 @@ x = 10
 y = 10
 d = 50
 w = 1
-times = 7
 
-width = d * times + x
-height = (d + d // 2) * times + y
-count = width // d    # " // " = celociselne delenie 7 // 3 = 2
-count2 = height // d
+canvas = tk.Canvas(width=600, height=500)
+canvas.pack()
+
+count = (600 - x) // d    # " // " = celociselne delenie 7 // 3 = 2
+count2 = (500 - y) // (d + d //2)
 stvrtina = d // 4
 
-
-canvas = tk.Canvas(width=width, height=height)
-canvas.pack()
 
 
 

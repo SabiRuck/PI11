@@ -6,9 +6,10 @@ y = 10
 d = 30
 w = 1
 times = 25
+times2 = 15
 
 width = d * times + x
-height = d * times + y
+height = d * times2 + y
 count = width // d    # " // " = celociselne delenie 7 // 3 = 2
 count2 = height // d
 
