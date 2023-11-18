@@ -6,12 +6,12 @@ d = 10
 times = 2
 times2 = 3
 color = "black"
-color2 = "purple"
+color2 = "#590E8C"
 
 width = times * (34 * d) + x
-height = times2 * (8 * d) + y
+height = times2 * (8 * d) + 2 * y
 
-canvas = tk.Canvas(width=width, height=height)
+canvas = tk.Canvas(width=width, height=height, bg="#9e79b3")
 canvas.pack()
 
 print(width, height)

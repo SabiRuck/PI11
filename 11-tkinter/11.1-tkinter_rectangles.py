@@ -20,8 +20,11 @@ canvas.pack()
 
 for j in range(count2):
     for i in range(count):
-        color = random.choice(("purple2", "purple3", "purple4", "purple1"))
-        color2 = random.choice(("orange", "pink", "yellow", "black"))
+        r = random.randrange(256)
+        g = random.randrange(256)
+        b = random.randrange(256)
+        color = f'#{r:02x}{g:02x}{b:02x}'
+        color2 = "black"
         canvas.create_rectangle(x, y, x + d, y + d, width=w, fill=color2, outline=color)
         canvas.create_line(x, y, x + d, y + d, width=w, fill=color)
         canvas.create_line(x, y + d, x + d, y, width=w, fill=color)

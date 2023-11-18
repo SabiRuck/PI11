@@ -3,15 +3,15 @@ import tkinter as tk
 x = 5
 y = 5
 d = 10
-width = 685
-height = 245
-color = "black"
-color2 = "purple"
+width = 800
+height = 300
+color = "#000000"
+color2 = "#590E8C"
 
 count = (width - x) // (33 * d)
 count2 = (height - y) // (8 * d)
 
-canvas = tk.Canvas(width=width, height=height)
+canvas = tk.Canvas(width=width, height=height, bg="#9e79b3")
 canvas.pack()
 
 print(count, count2)

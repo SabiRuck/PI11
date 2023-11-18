@@ -18,9 +18,9 @@ stvrtina = d // 4
 
 for i in range(count2):
     for j in range(count):
-        canvas.create_rectangle(x,  y+d // 2, x+d, y+(d // 2)+d)
-        canvas.create_polygon(x, y+d//2, x+2*stvrtina, y, x+d, y+d//2, outline="black", fill="#f0f0ed")
-        canvas.create_rectangle(x+stvrtina, y+d // 2+stvrtina, x+3*stvrtina, y+d // 2+3*stvrtina)
+        canvas.create_rectangle(x, y+d // 2, x+d, y+(d // 2)+d, fill="#c1c6c9")
+        canvas.create_polygon(x, y+d//2, x+2*stvrtina, y, x+d, y+d//2, outline="black", fill="#9c2222")
+        canvas.create_rectangle(x+stvrtina, y+d // 2+stvrtina, x+3*stvrtina, y+d // 2+3*stvrtina, fill="#1bb4f5")
         canvas.create_line(x+stvrtina, y+d // 2+2*stvrtina, x+3*stvrtina,y+d // 2+2*stvrtina)
         canvas.create_line(x+2*stvrtina, y+d // 2+stvrtina, x+2*stvrtina, y+d // 2+3*stvrtina)
         x = x + d
