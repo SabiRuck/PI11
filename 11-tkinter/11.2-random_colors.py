@@ -4,7 +4,7 @@ import random
 canvas = tkinter.Canvas(width=500, height=400)
 canvas.pack()
 
-"""
+""" 
 name = "Jan"
 name2 = "Mrkvicka"
 age = 255
