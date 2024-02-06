@@ -39,7 +39,7 @@ while true == True:
         true = False
 
     if far2 >=950:
-        print(f"{color2} rectangle win!")
+        print(f"{color2} rectangle won!")
         true = False
 
 
