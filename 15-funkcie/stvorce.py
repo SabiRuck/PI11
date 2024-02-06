@@ -19,9 +19,9 @@ def stvorec(x, y, times, d, r=0, g=0, b=0):
         x += d
 
 def main():
-    stvorec(10, 10, 10, 25, 255)
-    stvorec(10, 40, 10, 25, 0, 255)
-    stvorec(10, 70, 10, 25, 0, 0, 255)
+    stvorec(10, 10, 20, 20, 255)
+    stvorec(10, 40, 20, 20, 0, 255)
+    stvorec(10, 70, 20, 20, 0, 0, 255)
 
 
 
