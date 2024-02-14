@@ -1,7 +1,10 @@
 import turtle
 
 t = turtle.Turtle()
-turtle.speed(-10)
+def main():
+    turtle.speed(-10)
+    stvorec(10)
+    turtle.mainloop()
 
 def stvorec(width):
     for i in range(4):
@@ -11,4 +14,5 @@ def stvorec(width):
 
 
 
-turtle.mainloop()
+if __name__ == "__main__":
+    main()
