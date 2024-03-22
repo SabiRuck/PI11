@@ -19,12 +19,13 @@ color2 = random.choice(("gray", "purple", "green", "yellow"))
 o = 110
 far1 = o
 far2 = o
+true = True
 
 canvas.create_line(950, 0, 950, 300, width=3)
 rectangle1 = canvas.create_rectangle(10, 10, o, 110, fill=color1)
 rectangle2 = canvas.create_rectangle(10, 120, o, 220, fill=color2)
 
-while True:
+while true == True:
     x1 = random.randint(0, 5)
     x2 = random.randint(0, 5)
     canvas.update()
