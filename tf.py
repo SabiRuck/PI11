@@ -3,9 +3,9 @@ import tkinter, random, time
 window = tkinter.Tk()
 
 height, width = 600, 300
-canvas = tkinter.Canvas(height=1000, width=width, background="#202020")
+canvas = tkinter.Canvas(height=height, width=width, background="#202020")
 canvas.pack()
-
+speed = 10
 
 class Car:
     def __init__(self):
@@ -62,32 +62,33 @@ class Road:
             try:
                 for _ in range(int((height//50.0)+1)):
                     line = canvas.create_line(width//2, self.h, width//2, self.h+30, fill="#C0C0C0", width=5)
-                    self.lines.append(line)
+                    self.lines.insert(0, line)
                     self.h += 50
                 break
             except AttributeError:
-                self.h = 0
+                self.h = -30
                 self.lines = []
 
     def move(self):
+        global speed
         canvas.update()
-        canvas.after(50)
+        canvas.after(1)
         for line in self.lines:
-            canvas.move(line, 0, 5)
+            canvas.move(line, 0, speed)
+
             if canvas.coords(line)[1] > height:
                 self.lines.remove(line)
                 canvas.delete(line)
-            elif canvas.coords(line)[3] > height and canvas.coords(line)[1]>height-25:
-                line = canvas.create_line(width//2, 0, width//2, 30, fill="#C0C0C0", width=5)
-                self.lines.append(line)
 
+            elif canvas.coords(line)[3] == 50:
+                new_line = canvas.create_line(width//2, -30, width//2, 0, fill="#C0C0C0", width=5)
+                self.lines.append(new_line)
 
 
 class Rocks:
     def __init__(self):
         self.rocks = []  # all future rocks
         self.points = 0
-        self.speed = 10
         self.point = 1
         self.size = random.randint(25, 40)  # rock size
 
@@ -114,10 +115,11 @@ class Rocks:
             self.rocks.append(self.rock)
 
     def move_rocks(self, coords):
+        global speed
         for rock in self.rocks:  # each rock moves
             canvas.update()
-            canvas.after(5)
-            canvas.move(rock, 0, self.speed)
+            canvas.after(1)
+            canvas.move(rock, 0, speed)
             rcoords = canvas.coords(rock)
 
             if rcoords[1] > height:  # if rock no longer in canva == delete
@@ -125,8 +127,8 @@ class Rocks:
                 self.rocks.remove(rock)
                 self.points += self.point
 
-                if self.point in range(30, 3000, 30):
-                    self.speed += 3
+                # if self.points in range(15, 3000, 15):
+                #     speed += 5
 
             elif ((rcoords[0] in range(coords[0], coords[2])) or (rcoords[2] in range(coords[0], coords[2]))) and (
             (rcoords[1] in range(coords[1], coords[3]) or (rcoords[3]) in range(coords[1], coords[3]))):
@@ -142,47 +144,41 @@ class DeathError(Exception):
     pass
 
 
-# def main():
-#     button.destroy()
-#     a = 0
-#     # road = Road()
-#     car = Car()
-#     canvas.after(500)
-#     rocks = Rocks()
-#
-#     while True:
-#         try:
-#             def right(event):
-#                 if a == 0:
-#                     car.move_right(13)
-#
-#             def left(event):
-#                 if a == 0:
-#                     car.move_left(13)
-#
-#             canvas.bind_all("<Right>", right)
-#             canvas.bind_all("<Left>", left)
-#
-#             rocks.move_rocks(car.coords)
-#             rocks.add_rock()
-#             # road.move()
-#             if car.coords[2] <= 2 or car.coords[0] >= width:
-#                 raise DeathError
-#
-#         except DeathError:
-#             canvas.delete("all")
-#             canvas.create_text(width // 2, height // 2, text=f"You died!\nYou'r score is {rocks.score}",
-#                                font='arial 30')
-#             a = 1
-#             break
-#
-#
-# button = tkinter.Button(window, text='PLAY', command=main)
-# button.pack()
+def main():
+    button.destroy()
+    a = 0
+    road = Road()
+    car = Car()
+    canvas.after(500)
+    rocks = Rocks()
 
-road = Road()
+    while True:
+        try:
+            def right(event):
+                if a == 0:
+                    car.move_right(13)
+            def left(event):
+                if a == 0:
+                    car.move_left(13)
 
-for _ in range(1000):
-    road.move()
+            canvas.bind_all("<Right>", right)
+            canvas.bind_all("<Left>", left)
+
+            road.move()
+            rocks.move_rocks(car.coords)
+            rocks.add_rock()
+
+            if car.coords[2] <= 2 or car.coords[0] >= width:
+                raise DeathError
+
+        except DeathError:
+            canvas.delete("all")
+            canvas.create_text(width // 2, height // 2, text=f"You died!\nYou'r score is {rocks.score}",font='arial 30')
+            a = 1
+            break
+
+
+button = tkinter.Button(window, text='PLAY', command=main)
+button.pack()
 
 canvas.mainloop()
