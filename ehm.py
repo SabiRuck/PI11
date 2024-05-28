@@ -6,6 +6,7 @@ canvas = Tk.Canvas(width=width)
 canvas.pack()
 
 def main():
+    stvorce2('40 red 20 blue 60 purple 40 red 30 gold')
 
 
 def stvorce(vel, retazec):
@@ -24,6 +25,8 @@ def stvorce2(retazec):
     while True:
         if retazec == "":
             retazec = retazec1
+        elif x > width:
+            break
         kde = retazec.find(" ")
         size = int(retazec[:kde])
         retazec = retazec[kde+1:]
@@ -52,10 +55,9 @@ def kresli(retazec):
         elif znak == 'j':
             y1 += 10
         elif znak == 'z':
-            x1 -= 10
+            x1 -= 1
         else:
-            print('nerozumiem "' + znak + '"')
-            return
+            break
         canvas.create_line(x, y, x1, y1)
         x, y = x1, y1
 
