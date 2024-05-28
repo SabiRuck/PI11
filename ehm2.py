@@ -1,7 +1,7 @@
 from random import randint
 
 def main():
-    ...
+
 
 
 def sucet(retazec):
@@ -116,6 +116,13 @@ def nazov(n):
     while let1 == let2:
         let2 = chr(randint(ord("a"), ord("z")))
     return let1.upper() + let2*n + let1
+
+def pocet(retazec, podretazec):
+    count = 0
+    for i in range(len(retazec) + 1):
+        if retazec[i:i + len(podretazec)] == podretazec:
+            count += 1
+    return count
 
 
 
